@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F7FBF8;
+  --foreground: #086B45;
+  --brand-dark: #086B45;
+  --brand-deep: #064B37;
+  --brand-default: #16A765;
+  --brand-secondary: #23B26D;
+  --brand-light: #EEF9F3;
+  --brand-mint: #DFF7EA;
+  
+  --accent-warning: #E89B00;
+  --accent-info: #2B78E4;
+  --accent-purple: #7C5CFC;
+  --accent-pink: #E94D8A;
+
+  --surface-default: #FFFFFF;
+  --surface-muted: #F7FBF8;
+  --surface-dark: #093C2D;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-default: var(--brand-default);
+  --color-brand-light: var(--brand-light);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-mint: var(--brand-mint);
+  
+  --color-accent-warning: var(--accent-warning);
+  --color-accent-info: var(--accent-info);
+  --color-accent-purple: var(--accent-purple);
+
+  --color-surface-default: var(--surface-default);
+  --color-surface-muted: var(--surface-muted);
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-bengali: var(--font-bengali), sans-serif;
+  
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* To be implemented for dark mode */
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Hide Next.js dev indicator globally */
+nextjs-portal, #next-route-announcer {
+  display: none !important;
+}
