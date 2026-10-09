@@ -2,46 +2,48 @@ import { Flame, Play, Zap, Swords, FileCheck, Trophy } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="space-y-6 pb-20 pt-2 animate-in fade-in duration-500 max-w-lg mx-auto">
+    <div className="space-y-6 pb-20 pt-4 animate-in fade-in duration-500 max-w-2xl mx-auto px-4 md:px-8">
       
-      {/* Streak Dashboard Card */}
-      <section className="bg-white rounded-3xl p-5 shadow-sm border border-brand-mint/60 relative overflow-hidden group hover:shadow-md transition-shadow">
-        {/* Decorative background */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-light opacity-50 rounded-bl-full -z-0"></div>
+      {/* Header Greeting */}
+      <header className="mb-8 mt-2">
+        <h1 className="text-3xl font-sans font-bold text-primary tracking-tight">শুভ সকাল, <span className="text-action">শিখার্থী!</span></h1>
+        <p className="text-text-secondary mt-1 font-medium">আজকের পড়াশোনার লক্ষ্য কি?</p>
+      </header>
 
-        <div className="relative z-10 flex items-center justify-between mb-5">
+      {/* Streak Dashboard Card */}
+      <section className="bg-surface rounded-2xl p-6 shadow-subtle border border-border-light relative overflow-hidden group hover:border-action/30 transition-colors">
+        <div className="relative z-10 flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-gray-50">
-              <Flame className="w-6 h-6 text-accent-warning fill-current" />
+            <div className="w-12 h-12 bg-surface-muted rounded-xl flex items-center justify-center border border-border-light">
+              <Flame className="w-6 h-6 text-accent-amber fill-current" />
             </div>
             <div className="flex flex-col">
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">আজকের স্ট্রিক</span>
-              <h2 className="text-2xl font-black text-brand-dark leading-none">১০ দিন</h2>
+              <span className="text-[11px] font-bold text-text-secondary uppercase tracking-widest mb-1">আজকের স্ট্রিক</span>
+              <h2 className="text-2xl font-bold text-primary leading-none">১০ দিন</h2>
             </div>
           </div>
-          <div className="bg-brand-light/50 px-3 py-1.5 rounded-xl border border-brand-mint/50 text-right">
-            <span className="text-[10px] font-bold text-brand-dark block">আগামীকাল</span>
-            <span className="text-xs font-black text-brand-default">১১ দিন হবে!</span>
+          <div className="bg-surface-muted px-4 py-2 rounded-lg border border-border-light text-right">
+            <span className="text-[11px] font-bold text-text-secondary block">আগামীকাল</span>
+            <span className="text-sm font-bold text-action">১১ দিন হবে!</span>
           </div>
         </div>
 
         {/* Weekly Calendar */}
-        <div className="flex justify-between items-center bg-surface-muted/50 p-2.5 rounded-2xl border border-gray-100">
+        <div className="flex justify-between items-center bg-background p-3 rounded-xl border border-border-light">
           {['রবি', 'সোম', 'মঙ্গল', 'বুধ', 'বৃহঃ', 'শুক্র', 'শনি'].map((day, i) => {
             const isCompleted = i < 5;
             const isToday = i === 5;
-            const isFuture = i > 5;
             
             return (
-              <div key={day} className="flex flex-col items-center gap-1.5 flex-1">
-                <div className={"w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 " + 
-                  (isCompleted ? "bg-[#fff6ed] text-[#ff8c00]" : 
-                   isToday ? "bg-brand-default text-white shadow-md shadow-brand-default/20 scale-110" : 
-                   "bg-white text-gray-300 border border-gray-100")}
+              <div key={day} className="flex flex-col items-center gap-2 flex-1">
+                <div className={"w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 " + 
+                  (isCompleted ? "bg-accent-amber/10 text-accent-amber" : 
+                   isToday ? "bg-action text-white shadow-sm scale-110" : 
+                   "bg-surface text-gray-300 border border-border-light")}
                 >
                   <Flame className={"w-4 h-4 " + (isCompleted || isToday ? "fill-current" : "")} />
                 </div>
-                <span className={"text-[9px] font-extrabold " + (isToday ? "text-brand-default" : "text-gray-400")}>{day}</span>
+                <span className={"text-[11px] font-semibold " + (isToday ? "text-action" : "text-text-secondary")}>{day}</span>
               </div>
             );
           })}
@@ -49,99 +51,69 @@ export default function HomePage() {
       </section>
 
       {/* Resume Learning */}
-      <button className="w-full bg-[#EAF6F0] border border-brand-default rounded-3xl p-5 flex items-center justify-between hover:bg-[#d9f0e3] transition-colors group">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-brand-default text-white flex items-center justify-center">
+      <button className="w-full bg-surface-muted border border-action/20 rounded-2xl p-5 flex items-center justify-between hover:bg-surface-muted/70 hover:border-action/40 transition-all group shadow-sm">
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-full bg-action text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
             <Play className="w-4 h-4 fill-current ml-0.5" />
           </div>
-          <span className="font-extrabold text-brand-dark text-lg">চালিয়ে যাও · মিশ্র সেশন (০/২০)</span>
+          <div className="flex flex-col items-start">
+            <span className="font-bold text-primary text-[15px]">চালিয়ে যাও</span>
+            <span className="font-medium text-text-secondary text-sm">মিশ্র সেশন (০/২০)</span>
+          </div>
         </div>
-        <div className="w-8 h-8 rounded-full flex items-center justify-center text-brand-default group-hover:translate-x-1 transition-transform">
+        <div className="text-action group-hover:translate-x-1 transition-transform">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
         </div>
       </button>
 
       {/* Courses Section */}
-      <section className="bg-white rounded-3xl p-5 shadow-sm border border-gray-100">
-        <div className="flex items-center gap-2 mb-4 px-1">
-          <div className="w-6 h-6 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-          </div>
-          <h2 className="text-base font-extrabold text-brand-dark">আমাদের কোর্সসমূহ</h2>
+      <section className="bg-surface rounded-2xl p-6 shadow-subtle border border-border-light mt-8">
+        <div className="flex items-center gap-2 mb-5">
+          <div className="w-1.5 h-6 bg-action rounded-full"></div>
+          <h2 className="text-lg font-bold text-primary">আমাদের কোর্সসমূহ</h2>
         </div>
         
         <div className="space-y-3">
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-100 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer group">
-            <div>
-              <h3 className="font-bold text-brand-dark">SSC Physics</h3>
-              <p className="text-xs text-gray-500 mt-1">৯ম-১০ম শ্রেণির সম্পূর্ণ সিলেবাস</p>
+          {[
+            { title: 'SSC Physics', desc: '৯ম-১০ম শ্রেণির সম্পূর্ণ সিলেবাস' },
+            { title: 'HSC Physics', desc: 'একাদশ-দ্বাদশ শ্রেণির পূর্ণাঙ্গ প্রস্তুতি' },
+            { title: 'Admission Physics', desc: 'Medical, Varsity, Engineering' }
+          ].map((course, idx) => (
+            <div key={idx} className="p-4 rounded-xl bg-background border border-border-light flex items-center justify-between hover:border-action/30 transition-colors cursor-pointer group">
+              <div>
+                <h3 className="font-bold text-primary text-[15px] group-hover:text-action transition-colors">{course.title}</h3>
+                <p className="text-[13px] font-medium text-text-secondary mt-1">{course.desc}</p>
+              </div>
+              <div className="w-8 h-8 rounded-full bg-surface border border-border-light flex items-center justify-center text-text-secondary group-hover:bg-action group-hover:text-white group-hover:border-action transition-all">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </div>
             </div>
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </div>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer group">
-            <div>
-              <h3 className="font-bold text-brand-dark">HSC Physics</h3>
-              <p className="text-xs text-gray-500 mt-1">একাদশ-দ্বাদশ শ্রেণির পূর্ণাঙ্গ প্রস্তুতি</p>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </div>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-50 to-fuchsia-50 border border-purple-100 flex items-center justify-between hover:shadow-md transition-shadow cursor-pointer group">
-            <div>
-              <h3 className="font-bold text-brand-dark">Admission Physics</h3>
-              <p className="text-xs text-gray-500 mt-1">Medical, Varsity, Engineering</p>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Quick Start Grid */}
-      <section className="bg-white rounded-3xl p-5 shadow-sm border border-gray-100">
-        <div className="flex items-center gap-2 mb-4 px-1">
-          <Zap className="w-5 h-5 text-brand-default fill-current" />
-          <h2 className="text-base font-extrabold text-brand-dark">দ্রুত শুরু</h2>
+      <section className="bg-surface rounded-2xl p-6 shadow-subtle border border-border-light mt-8">
+        <div className="flex items-center gap-2 mb-5">
+          <div className="w-1.5 h-6 bg-accent-amber rounded-full"></div>
+          <h2 className="text-lg font-bold text-primary">দ্রুত শুরু</h2>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-4">
           
-          <button className="flex flex-col items-center justify-center p-5 bg-[#F8FAF9] border border-gray-100 rounded-2xl hover:border-brand-default hover:shadow-sm transition-all group">
-            <div className="w-12 h-12 bg-white shadow-sm text-[#10B981] rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <Zap className="w-6 h-6 fill-current" />
-            </div>
-            <span className="font-extrabold text-brand-dark text-[13px]">মাস্টারি চ্যালেঞ্জ</span>
-            <span className="text-[10px] font-semibold text-gray-400 mt-1">নিজেকে যাচাই করো</span>
-          </button>
-
-          <button className="flex flex-col items-center justify-center p-5 bg-[#F8FAF9] border border-gray-100 rounded-2xl hover:border-[#ff4d6d] hover:shadow-sm transition-all group">
-            <div className="w-12 h-12 bg-white shadow-sm text-[#ff4d6d] rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <Swords className="w-6 h-6" />
-            </div>
-            <span className="font-extrabold text-brand-dark text-[13px]">গেম</span>
-            <span className="text-[10px] font-semibold text-gray-400 mt-1">সার্ভাইভাল ও ডুয়েল</span>
-          </button>
-
-          <button className="flex flex-col items-center justify-center p-5 bg-[#F8FAF9] border border-gray-100 rounded-2xl hover:border-[#0ea5e9] hover:shadow-sm transition-all group">
-            <div className="w-12 h-12 bg-white shadow-sm text-[#0ea5e9] rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <FileCheck className="w-6 h-6" />
-            </div>
-            <span className="font-extrabold text-brand-dark text-[13px]">রিভিউ</span>
-            <span className="text-[10px] font-semibold text-gray-400 mt-1">ভুল ও বুকমার্ক</span>
-          </button>
-
-          <button className="flex flex-col items-center justify-center p-5 bg-[#F8FAF9] border border-gray-100 rounded-2xl hover:border-[#f59e0b] hover:shadow-sm transition-all group">
-            <div className="w-12 h-12 bg-white shadow-sm text-[#f59e0b] rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <Trophy className="w-6 h-6" />
-            </div>
-            <span className="font-extrabold text-brand-dark text-[13px]">লিডারবোর্ড</span>
-            <span className="text-[10px] font-semibold text-gray-400 mt-1">র‍্যাংকিং দেখো</span>
-          </button>
+          {[
+            { icon: Zap, label: 'মাস্টারি চ্যালেঞ্জ', sub: 'নিজেকে যাচাই করো' },
+            { icon: Swords, label: 'গেম', sub: 'সার্ভাইভাল ও ডুয়েল' },
+            { icon: FileCheck, label: 'রিভিউ', sub: 'ভুল ও বুকমার্ক' },
+            { icon: Trophy, label: 'লিডারবোর্ড', sub: 'র‍্যাংকিং দেখো' }
+          ].map((item, idx) => (
+            <button key={idx} className="flex flex-col items-start p-5 bg-background border border-border-light rounded-xl hover:border-action/30 transition-all group text-left">
+              <div className="w-10 h-10 bg-surface shadow-sm border border-border-light text-primary rounded-lg flex items-center justify-center mb-3 group-hover:text-action transition-colors">
+                <item.icon className="w-5 h-5" />
+              </div>
+              <span className="font-bold text-primary text-[14px]">{item.label}</span>
+              <span className="text-[12px] font-medium text-text-secondary mt-1">{item.sub}</span>
+            </button>
+          ))}
 
         </div>
       </section>

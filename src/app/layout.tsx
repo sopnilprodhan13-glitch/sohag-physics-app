@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="bn" className={cn(inter.variable, hindSiliguri.variable, "antialiased")}>
-      <body className="min-h-screen bg-[#EAF6F0] text-brand-dark flex flex-col font-bengali">
+      <body className="min-h-screen bg-background text-text-primary flex flex-col font-sans">
         <AuthProvider>
           {children}
         </AuthProvider>

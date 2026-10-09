@@ -1,69 +1,88 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F7FBF8;
-  --foreground: #086B45;
-  --brand-dark: #086B45;
-  --brand-deep: #064B37;
-  --brand-default: #16A765;
-  --brand-secondary: #23B26D;
-  --brand-light: #EEF9F3;
-  --brand-mint: #DFF7EA;
-  
-  --accent-warning: #E89B00;
-  --accent-info: #2B78E4;
-  --accent-purple: #7C5CFC;
-  --accent-pink: #E94D8A;
+  --background: #F7F9F7;
+  --surface: #FFFFFF;
+  --surface-muted: #EAF5EE;
 
-  --surface-default: #FFFFFF;
-  --surface-muted: #F7FBF8;
-  --surface-dark: #093C2D;
+  --primary: #12382D;
+  --action: #0B8F63;
+  
+  --text-primary: #17251F;
+  --text-secondary: #68756E;
+  
+  --border-light: #E4EAE5;
+  --accent-amber: #F4BE4F;
+  
+  /* Fallbacks for existing classes used throughout the app */
+  --brand-dark: #12382D;
+  --brand-deep: #0D2921;
+  --brand-default: #0B8F63;
+  --brand-secondary: #0A7A54;
+  --brand-light: #EAF5EE;
+  --brand-mint: #D4EADD;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-surface-default: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-primary: var(--primary);
+  --color-action: var(--action);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-light: var(--border-light);
+  --color-accent-amber: var(--accent-amber);
+  
+  /* Keep existing theme colors so old classes don't break instantly */
   --color-brand-dark: var(--brand-dark);
   --color-brand-default: var(--brand-default);
   --color-brand-light: var(--brand-light);
   --color-brand-deep: var(--brand-deep);
   --color-brand-secondary: var(--brand-secondary);
   --color-brand-mint: var(--brand-mint);
+
+  --font-sans: 'Hind Siliguri', var(--font-inter), sans-serif;
+  --font-bengali: 'Hind Siliguri', sans-serif;
   
-  --color-accent-warning: var(--accent-warning);
-  --color-accent-info: var(--accent-info);
-  --color-accent-purple: var(--accent-purple);
+  --shadow-premium: 0 8px 30px rgba(18, 56, 45, 0.04), 0 2px 8px rgba(18, 56, 45, 0.02);
+  --shadow-subtle: 0 2px 10px rgba(18, 56, 45, 0.03);
 
-  --color-surface-default: var(--surface-default);
-  --color-surface-muted: var(--surface-muted);
-
-  --font-sans: var(--font-inter), sans-serif;
-  --font-bengali: var(--font-bengali), sans-serif;
-  
-  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
-  --radius-2xl: 28px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* To be implemented for dark mode */
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Hide Next.js dev indicator globally */
 nextjs-portal, #next-route-announcer {
   display: none !important;
+}
+
+/* Markdown typography improvements for AI Tutor */
+.markdown-body {
+  color: var(--text-primary);
+}
+.markdown-body p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.markdown-body strong {
+  font-weight: 600;
+  color: var(--primary);
+}
+.markdown-body code {
+  background: var(--surface-muted);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--action);
 }

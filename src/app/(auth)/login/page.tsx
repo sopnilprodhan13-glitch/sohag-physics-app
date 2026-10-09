@@ -42,59 +42,59 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#10B981] to-[#064E3B] flex flex-col items-center justify-end md:justify-center relative font-bengali">
+    <div className="min-h-screen bg-primary flex flex-col items-center justify-end md:justify-center relative font-sans">
       
-      <div className="w-full max-w-md flex flex-col h-screen md:h-auto md:min-h-[800px] md:rounded-[2.5rem] md:overflow-hidden md:shadow-2xl relative bg-gradient-to-b from-transparent to-[#064E3B]/20">
+      <div className="w-full max-w-md flex flex-col h-screen md:h-auto md:min-h-[800px] md:rounded-[2rem] md:overflow-hidden md:shadow-2xl relative bg-primary">
         
         {/* Top Section - Brand & Tagline */}
-        <div className="pt-10 px-8 pb-10">
+        <div className="pt-10 px-8 pb-10 flex-shrink-0">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center border border-white/30 overflow-hidden shadow-sm shrink-0">
-              <Image src="/logo.jpg" alt="Sohag Physics" width={56} height={56} className="object-cover" />
+            <div className="w-12 h-12 bg-surface rounded-xl flex items-center justify-center overflow-hidden shadow-sm shrink-0">
+              <Image src="/logo.jpg" alt="Sohag Physics" width={48} height={48} className="object-cover" />
             </div>
             <div className="flex flex-col">
-              <h1 className="text-2xl font-black text-white tracking-wide">SOHAG PHYSICS</h1>
-              <span className="text-[10px] font-bold text-white/70 tracking-[0.2em]">LEARN AND MASTER</span>
+              <h1 className="text-xl font-bold text-white tracking-wide leading-tight">SOHAG PHYSICS</h1>
+              <span className="text-[10px] font-bold text-action tracking-[0.2em] uppercase">Premium Learning</span>
             </div>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-black text-white leading-snug">
-            শেখো. অনুশীলন করো. এগিয়ে যাও।
+          <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
+            শেখো. অনুশীলন করো.<br/>এগিয়ে যাও।
           </h2>
         </div>
 
         {/* Bottom Sheet Section - Login Form */}
-        <div className="bg-white w-full flex-1 rounded-t-[2.5rem] px-8 pt-6 pb-10 flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)] relative z-10 animate-in slide-in-from-bottom-full duration-500">
+        <div className="bg-background w-full flex-1 rounded-t-[2rem] md:rounded-t-none px-8 pt-6 pb-10 flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.2)] relative z-10 animate-in slide-in-from-bottom-full duration-500">
           
           {/* Drag Handle */}
-        <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-8"></div>
+        <div className="w-12 h-1.5 bg-border-light rounded-full mx-auto mb-8 md:hidden"></div>
 
-        <h3 className="text-3xl font-black text-[#086B45] mb-2">লগ ইন</h3>
-        <p className="text-gray-500 font-medium mb-8 text-base">চলুন পড়া চালিয়ে রাখি।</p>
+        <h3 className="text-2xl font-bold text-primary mb-1">লগ ইন</h3>
+        <p className="text-text-secondary font-medium mb-8 text-sm">চলুন পড়া চালিয়ে রাখি।</p>
 
         {/* Social Buttons */}
         <div className="space-y-3 mb-6">
           <button 
             onClick={handleGoogleLogin}
-            className="w-full h-14 bg-white border-2 border-gray-100 rounded-2xl flex items-center justify-center gap-3 hover:bg-gray-50 hover:border-gray-200 transition-all font-bold text-gray-700 text-lg shadow-sm"
+            className="w-full h-12 bg-surface border border-border-light rounded-xl flex items-center justify-center gap-3 hover:bg-surface-muted transition-colors font-semibold text-primary shadow-subtle"
           >
-            <Image src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" width={24} height={24} />
-            Google
+            <Image src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" width={20} height={20} />
+            Google দিয়ে লগ ইন
           </button>
         </div>
 
         {/* Divider */}
         <div className="flex items-center gap-4 mb-6">
-          <div className="flex-1 h-[1px] bg-gray-200"></div>
-          <span className="text-gray-400 font-medium">অথবা</span>
-          <div className="flex-1 h-[1px] bg-gray-200"></div>
+          <div className="flex-1 h-[1px] bg-border-light"></div>
+          <span className="text-text-secondary font-semibold text-xs">অথবা</span>
+          <div className="flex-1 h-[1px] bg-border-light"></div>
         </div>
 
         {/* Input Fields */}
         <div className="space-y-4 mb-3">
           <div className="relative flex items-center">
-            <div className="absolute left-4 text-[#16A765]">
-              <User className="w-5 h-5 fill-current" />
+            <div className="absolute left-4 text-text-secondary">
+              <User className="w-5 h-5" />
             </div>
             <input 
               type="email" 
@@ -102,13 +102,13 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="মোবাইল নম্বর বা ইমেইল"
               autoComplete="off"
-              className="w-full h-14 bg-[#F0F5F9] border border-transparent rounded-2xl pl-12 pr-4 text-brand-dark font-semibold focus:bg-white focus:border-[#16A765] focus:ring-4 focus:ring-[#16A765]/10 outline-none transition-all placeholder:text-gray-400 placeholder:font-medium"
+              className="w-full h-12 bg-surface border border-border-light rounded-xl pl-12 pr-4 text-primary font-medium focus:bg-surface focus:border-action focus:ring-4 focus:ring-action/10 outline-none transition-all placeholder:text-text-secondary"
             />
           </div>
 
           <div className="relative flex items-center">
-            <div className="absolute left-4 text-[#16A765]">
-              <Lock className="w-5 h-5 fill-current" />
+            <div className="absolute left-4 text-text-secondary">
+              <Lock className="w-5 h-5" />
             </div>
             <input 
               type={showPassword ? "text" : "password"} 
@@ -116,21 +116,21 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="পাসওয়ার্ড"
               autoComplete="new-password"
-              className="w-full h-14 bg-[#F0F5F9] border border-transparent rounded-2xl pl-12 pr-12 text-brand-dark font-semibold focus:bg-white focus:border-[#16A765] focus:ring-4 focus:ring-[#16A765]/10 outline-none transition-all placeholder:text-gray-400 placeholder:font-medium"
+              className="w-full h-12 bg-surface border border-border-light rounded-xl pl-12 pr-12 text-primary font-medium focus:bg-surface focus:border-action focus:ring-4 focus:ring-action/10 outline-none transition-all placeholder:text-text-secondary"
             />
             <button 
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-4 text-[#16A765] hover:text-[#086B45] transition-colors"
+              className="absolute right-4 text-text-secondary hover:text-action transition-colors"
             >
               {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
             </button>
           </div>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
+          {error && <p className="text-red-500 text-sm font-medium pl-1">{error}</p>}
         </div>
 
         {/* Forgot Password */}
         <div className="flex justify-end mb-8">
-          <button className="text-[#16A765] font-bold text-sm hover:text-[#086B45] transition-colors">
+          <button className="text-action font-semibold text-[13px] hover:text-primary transition-colors">
             পাসওয়ার্ড ভুলে গেছ?
           </button>
         </div>
@@ -138,16 +138,16 @@ export default function LoginPage() {
         {/* Login Button */}
         <button 
           onClick={handleEmailLogin}
-          className="w-full h-14 bg-[#16A765] hover:bg-[#086B45] text-white rounded-2xl font-bold text-lg flex items-center justify-center gap-2 transition-all active:scale-95 shadow-[0_8px_20px_rgba(22,167,101,0.3)] mb-8"
+          className="w-full h-12 bg-action hover:bg-action/90 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-premium mb-8"
         >
           লগ ইন করো
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-4 h-4" />
         </button>
         {' '}
         {/* Footer */}
-        <div className="text-center">
-          <span className="text-gray-500 font-medium">এখনও অ্যাকাউন্ট নেই? </span>
-          <Link href="/onboarding" className="text-[#16A765] font-bold hover:text-[#086B45] transition-colors">
+        <div className="text-center mt-auto">
+          <span className="text-text-secondary font-medium text-[13px]">এখনও অ্যাকাউন্ট নেই? </span>
+          <Link href="/onboarding" className="text-action font-bold text-[13px] hover:text-primary transition-colors">
             বিনামূল্যে যোগ দাও
           </Link>
         </div>

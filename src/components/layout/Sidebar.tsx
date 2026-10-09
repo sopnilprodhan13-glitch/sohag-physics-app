@@ -18,27 +18,27 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden md:flex flex-col w-72 h-screen border-r border-brand-mint/50 bg-white sticky top-0 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
+    <aside className="hidden md:flex flex-col w-72 h-screen border-r border-border-light bg-surface sticky top-0">
       
       {/* Brand Header */}
       <div className="p-8 flex items-center gap-4">
-        <div className="w-12 h-12 rounded-2xl overflow-hidden border border-brand-mint shadow-sm shrink-0">
+        <div className="w-10 h-10 rounded-xl overflow-hidden shadow-subtle shrink-0">
           <Image 
             src="/logo.jpg" 
             alt="Sohag Physics Logo" 
-            width={48} 
-            height={48} 
+            width={40} 
+            height={40} 
             className="w-full h-full object-cover bg-white"
           />
         </div>
         <div className="flex flex-col">
-          <span className="font-sans font-black text-xl tracking-tight text-brand-dark leading-none">SOHAG</span>
-          <span className="font-sans font-black text-xl tracking-tight text-brand-default leading-none">PHYSICS</span>
+          <span className="font-sans font-bold text-lg tracking-tight text-primary leading-tight">SOHAG</span>
+          <span className="font-sans font-semibold text-[13px] tracking-widest text-text-secondary leading-none uppercase">Physics</span>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-6 space-y-1.5 mt-2">
+      <nav className="flex-1 px-4 space-y-1 mt-2">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
@@ -48,13 +48,13 @@ export function Sidebar() {
               key={item.name}
               href={item.href}
               className={cn(
-                "flex items-center gap-4 px-4 py-3.5 rounded-2xl transition-all duration-300 font-bold text-[15px]",
+                "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors font-medium text-[15px]",
                 isActive 
-                  ? "bg-brand-default text-white shadow-md shadow-brand-default/20 translate-x-1" 
-                  : "text-gray-500 hover:bg-brand-mint/40 hover:text-brand-dark"
+                  ? "bg-surface-muted text-action" 
+                  : "text-text-secondary hover:bg-gray-50 hover:text-primary"
               )}
             >
-              <Icon className={cn("w-5 h-5", isActive ? "text-white" : "text-gray-400")} />
+              <Icon className={cn("w-5 h-5", isActive ? "text-action" : "text-gray-400")} strokeWidth={isActive ? 2.5 : 2} />
               <span>{item.name}</span>
             </Link>
           );
@@ -63,22 +63,15 @@ export function Sidebar() {
       
       {/* Sidebar Footer - Sleek Streak Box */}
       <div className="p-6">
-        <div className="p-5 rounded-3xl bg-brand-light/40 border border-brand-mint relative overflow-hidden group hover:border-brand-default/50 transition-colors cursor-pointer">
-          <div className="absolute top-0 right-0 w-16 h-16 bg-white/40 rounded-bl-full -z-0"></div>
-          
-          <div className="relative z-10 flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
-                <Flame className="w-4 h-4 text-accent-warning fill-current" />
-              </div>
-              <span className="font-extrabold text-brand-dark text-sm">3 Days</span>
-            </div>
+        <div className="p-5 rounded-2xl bg-surface border border-border-light shadow-sm flex flex-col gap-3 group hover:border-action/30 transition-colors">
+          <div className="flex items-center gap-2">
+            <Flame className="w-4 h-4 text-accent-amber fill-current" />
+            <span className="font-semibold text-primary text-sm">3 Day Streak</span>
           </div>
-          
-          <div className="w-full bg-white/60 rounded-full h-1.5 mb-2 overflow-hidden relative z-10">
-            <div className="bg-brand-default h-full rounded-full w-[40%]"></div>
+          <div className="w-full bg-border-light rounded-full h-1.5 overflow-hidden">
+            <div className="bg-action h-full rounded-full w-[40%] transition-all duration-1000"></div>
           </div>
-          <p className="text-[11px] font-bold text-brand-secondary relative z-10">Complete 1 more lesson</p>
+          <p className="text-[12px] font-medium text-text-secondary">Complete 1 more lesson</p>
         </div>
       </div>
       
